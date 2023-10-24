@@ -1,0 +1,956 @@
+/* Start main styles  */
+
+    /*
+
+    font-family: 'Dancing Script', cursive;
+    font-family: 'Mooli', sans-serif;
+    
+    */
+
+:root{
+   --main-color:#000642;
+   --second-color:#fff;
+}    
+    
+    
+*{
+    padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.container{
+    width: 80%;
+    margin: auto;
+}
+
+h2{
+   text-align: center;
+   font-family: sans-serif;
+   font-size: 41px;
+   font-weight: bold;
+   color: var(--main-color);
+}
+
+.line{
+   position: relative;
+   width: 271px;
+   margin: auto;
+   margin-bottom: 21px;
+   font-family: 'Signika Negative', sans-serif;
+   font-weight: 700;
+   text-transform: capitalize;
+}
+
+.line::after{
+   content: "";
+   position: absolute;
+   background-color: var(--main-color);
+   width: 100%;
+   transform: scale(80%);
+   transition: 0.5s;
+   height: 3px;
+   bottom: 0;
+   left: 0;
+}
+
+.line:hover::after{
+   transform: scale(100%);
+}
+
+
+.clearFix{
+    clear: both;
+}
+
+/* End main styles  */
+
+/* Start header styles */
+
+header{
+   position: absolute;
+   width: 100%;
+   background-color: transparent;
+   z-index: 50;
+}
+
+header .container{
+   height: 80px;
+}
+
+header > .logo {
+   text-align: center;
+   border-bottom: 1px solid var(--second-color);
+   animation-name:hide ;
+   animation-delay: 7s;
+   animation-duration: 3.5s;
+   height: 160px;
+   width: 100%;
+   opacity: 1;
+   animation-fill-mode: forwards;
+}
+
+@keyframes hide {
+   from{
+      height: 160px;
+      border-bottom: 1px solid var(--second-color);
+   }to{
+      height: 0;
+      border-bottom:none;
+   }
+}
+
+header > .logo img{
+   animation-name:show ;
+   animation-duration: 7s;
+   visibility: hidden;
+   opacity: 0;
+   animation-fill-mode: forwards;
+   animation-timing-function: linear;
+}
+
+@keyframes show {
+   0%{
+      visibility: hidden;
+      opacity: 0;
+   }
+   10%{
+      visibility: visible;
+      opacity: 1;
+   }
+   90%{
+      visibility: visible;
+      opacity: 1;
+   }
+   100%{
+      visibility: hidden;
+      opacity: 0;
+   }
+}
+
+header nav {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin-bottom: 23px;
+   height: 100%;
+}
+
+header nav .nav-logo{
+   animation-name: nav-logo;
+   animation-delay: 7s;
+   animation-duration: 3.5s;
+   opacity: 0;
+   height: 0;
+   width: 0;
+   animation-fill-mode: forwards;
+}
+
+@keyframes nav-logo {
+   from{
+      opacity: 0;
+      height: 0;
+      width: 0;
+   }to{
+      opacity: 1;
+      height: 150px;
+      width: 200px;
+   }
+}
+
+header nav .links{
+   flex-grow: 4;
+}
+
+header nav .links ul {
+   list-style: none;
+   display: flex;
+   justify-content: space-around;
+}
+
+header nav li > a{
+   text-decoration: none;
+   font-family: 'Dancing Script', cursive;
+   font-weight: bold;
+   font-size: 26px;
+   color: var(--second-color);
+   text-transform: capitalize;
+   padding: 5px 7px;
+   position: relative;
+}
+
+header nav li > a::before{
+   content: "";
+   position: absolute;
+   border-width: 0px 2px;
+   border-color: var(--second-color);
+   border-style: solid;
+   transition: 0.2s;
+   top: 0;
+   height: 100%;
+   width: calc(100% - 4px);
+   transform: scale(1,0);
+   left: 0;
+}
+
+header nav li > a:hover::before{
+   transform: scale(1,1);
+}
+
+header nav li > a::after{
+   content: "";
+    position: absolute;
+    border-width: 2px 0;
+    border-color: var(--second-color);
+    border-style: solid;
+    top: 0;
+    left: 0;
+    transition: 0.2s;
+    transition-delay: 0.2s;
+    transform-origin: left;
+    width: 100%;
+    height: calc(100% - 4px);
+    transform: scale(0,1);
+}
+
+header nav li a:hover::after{
+   transform: scale(1,1);
+}
+
+
+header nav .icons {
+   flex-grow: 1;
+   color: var(--second-color);
+   font-size: 24px;
+   display: flex;
+   justify-content: space-evenly;
+}
+
+header .icons .icon-last{
+   position: relative;
+   width: 50px;
+}
+
+header .icons .icon-last::after{
+   content: "0";
+   position: absolute;
+   background-color: var(--second-color);
+   line-height: normal;
+   width: 20px;
+   height: 20px;
+   font-size: 17px;
+   text-align: center;
+   color: var(--main-color);
+   border-radius: 50%;
+   bottom: 0;
+}
+
+header .icons span{
+   font-family: 'Mooli', sans-serif;
+   font-weight: 500;
+}
+
+.link-items{
+   position: relative;
+}
+
+header nav li .dropdown-list{
+   position: absolute;
+   border: 2px solid var(--main-color);
+   width: 500px;
+   height: 200px;
+   transform: scale(0,1);
+   transition: 0.5s;
+   transition-delay: 0.1ms;
+   top: 42px;
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   background-color: var(--main-color);
+   transform-origin: top left;
+}
+
+header nav .link-items:hover .dropdown-list{
+   transform:scale(1,1);
+}
+
+header .links dt{
+   font-size: 24px;
+   font-weight: bold;
+   text-transform: uppercase;
+   font-family: 'Mooli';
+   color: var(--second-color);
+   border-bottom: 1px dotted;
+   margin-bottom: 6px;
+}
+
+header .links dd a {
+   text-transform: capitalize;
+   font-family: 'Mooli';
+   font-size: 17px;
+   margin-bottom: 8px;
+   color: var(--second-color);
+   text-decoration: none;
+   display: inline-block;
+}
+
+/* End header styles */
+
+/* Start main video */
+
+main video {
+   width: 100%;
+   display: block;
+}
+
+.intro{
+   position: relative;
+}
+
+.intro .vid-overlay {
+  position:absolute;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  top: 0;
+  left: 0;
+}
+
+.intro .vid-overlay .vid-content{
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%,-50%);
+   width: 350px;
+   color: white;
+   text-align: center;
+   text-transform: uppercase;
+}
+
+.intro .vid-content .w-model{
+    font-family: fantasy;
+    font-size: 54px;
+}
+
+.intro .vid-content .w-color{
+   font-family: 'Dancing Script';
+   font-size: 24px;
+   word-spacing: -4px;
+}
+
+/* End main video */
+
+/* Start men Section  */
+
+.men .container{
+   padding: 14px 0;
+}
+
+.men-category{
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
+}
+
+.men-category .men-item{
+   width: 49%;
+   transition: 1s;
+   position: relative;
+}
+
+.men-category .men-item .men-img img {
+   width: 50%;
+   height: 315px;
+   display: block;
+   margin: auto;
+}
+
+.men-category .men-info {
+   padding: 20px 0;
+   position: relative;
+   width: 50%;
+   margin: auto;
+   text-align: center;
+}
+
+.men-button {
+   border: none;
+   outline: none;
+   height: 50px;
+   width: 166px;
+   text-transform: capitalize;
+   font-size: 17px;
+   font-family: 'Signika Negative';
+   background-color: var(--main-color);
+   position: relative;
+   transition: 0.5s;
+   cursor: pointer;
+   color:var(--second-color)
+}
+
+.men-button::after{
+   font-style: normal;
+   content: "\f061";
+   width: 50px;
+   height: 50px;
+   position: absolute;
+   line-height: 50px;
+   font-size: 30px;
+   font-weight: bold;
+   font-family: 'Font Awesome 5 Free';
+   color: #fff;
+   background-color: var(--main-color);
+   top: 50%;
+   left: 100%;
+   transform: translateY(-50%);
+   opacity: 0;
+   transition: 0.5s;
+   text-align: center;
+   cursor: pointer;
+   border-top-right-radius: 16px;
+   border-bottom-right-radius: 16px;
+   color: var(--second-color);
+}
+
+.men-item:hover .men-info .men-button::after{
+   opacity: 1;
+}
+
+.men-category .men-item .men-w-name{
+   font-size: 17px;
+   text-transform: uppercase;
+   font-family: 'Signika Negative';
+  
+}
+
+.men-category .men-item .men-w-color{
+   font-size: 18px;
+   text-transform: uppercase;
+   font-family: 'Dancing Script';
+   word-spacing: -3px;
+   margin-bottom: 6px;
+}
+/* End men Section  */
+
+
+.men1{
+  display: flex;
+  height: 400px;
+  width: 100%;
+  background-color: var(--main-color);
+}
+
+.men1 .men1-photo{
+   position: relative;
+   width: 50%;
+}
+
+.men1-photo .men1-overlay{
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   top: 0;
+   left: 0;
+   background-color: rgba(0,0,0,29%);
+   z-index: 7;
+   border-radius: 20%;
+}
+
+.men1-photo img , .men1-photo button {
+   position: absolute;
+}
+
+.men1-photo img {
+   width: 100%;
+   height: 100%;
+}
+
+.men1-photo button {
+   top:59%;
+   left: 7%;
+   z-index: 8;
+}
+
+.men1-photo:hover .men-button::after{
+   opacity: 1;
+}
+
+.men1-info {
+   position: relative;
+   width: 50%;
+}
+
+.men1-info-details{
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%,-50%);
+   width: 400px;
+}
+
+
+.men1-info h3{
+   margin-bottom: 26px;
+   text-transform: capitalize;
+   font-size: 48px;
+   font-family: 'Mooli';
+}
+
+.men1-info h3,.men1-info p {
+   color: var(--second-color);
+    font-family: 'Signika Negative';
+    font-size: 31px;
+    word-spacing: -1px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Start instagram styles */
+.watch-site{
+   display: grid;
+   grid-template-columns: repeat(2,50%);
+   height: 100vh;
+   /* position: relative; */
+}
+
+.watch-site .watch-site-info {
+   padding: 20px;
+   height: 100%;
+   position: relative;
+   background-color: var(--main-color);
+}
+
+.watch-site .w-site-left{
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%,-50%);
+   width: 400px;
+}
+
+.watch-site .watch-site-info h3 {
+   text-transform: capitalize;
+   font: 40px sans-serif;
+   margin-bottom: 15px;
+   color: var(--second-color);
+}
+
+.watch-site .watch-site-info p{
+   word-spacing: -3px;
+   margin-bottom: 15px;
+   font:22px cursive;
+   color:var(--second-color)
+}
+
+.watch-site .watch-site-info button{
+   width: 324px;
+   background-color: transparent;
+   outline: none;
+   border: 0.5px solid #fff;
+   height: 50px;
+   text-transform: capitalize;
+   font: 20px sans-serif;
+   cursor: pointer;
+   transition: 1s;
+   color: var(--second-color);
+}
+
+.watch-site-info button:hover{
+   background-color: black;
+   color: white;
+   border: none;
+}
+
+
+
+.watch-site .watch-site-image {
+   height: 100%;
+   position: relative;
+}
+
+.watch-site .watch-site-image img{
+   width: 100%;
+   display: block;
+   height: 100%;
+   position:absolute
+}
+
+/* End instgram styles */
+
+/* Start women styles */
+
+.women .women-category {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
+}
+
+.women .women-category .women-item{
+   width: 30%;
+   margin-bottom: 25px;
+   border: 1px solid var(--main-color);
+   text-align: center;
+}
+
+.women-category .women-item button {
+   width: 100%;
+   border: none;
+   outline: none;
+   padding: 7px 0;
+   background-color: var(--main-color);
+   color: var(--second-color);
+   font-size: 18px;
+   font-weight: 800;
+   font-family: 'Mooli', sans-serif;
+   cursor: pointer;
+}
+
+.women .women-category .women-img{
+   position: relative;
+}
+
+.women .women-category .women-img img{
+   width: 100%;
+   display: block;
+}
+
+.women-category .women-item p{
+    text-transform: uppercase;
+    font-family: 'Signika Negative';
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.women .women-img .face,.back{
+  transition: 0.3s;
+}
+
+.women .women-img .face{
+   position: absolute;
+   z-index: 1;
+}
+
+.women .women-category .women-img:hover .face{
+   opacity: 0.1;
+}
+
+.women .women-img .back{
+   transform: rotatey(90deg);
+}
+
+.women .women-category .women-img:hover .back{
+   transform: rotatey(0deg);
+   z-index: 2;
+}
+
+.women .women-category .women-info{
+   background-color: #fff;
+   padding: 50px 15px 0;
+}
+
+.women .women-info .rate{
+   color:var(--main-color)
+}
+
+/* end women styles */
+
+/* Start smart watch styles */
+.smart-watches {
+   background-color: var(--main-color);
+   padding: 30px 0;
+}
+
+.smart-watches .container h2{
+   color: var(--second-color);
+}
+
+.smart-watches .container h2::after{
+   background-color: var(--second-color);
+}
+
+.smart-watches .container .smart-items {
+   display: grid;
+   grid-template-columns: repeat(4,1fr);
+   grid-column-gap: 10px;
+   grid-row-gap: 20px;
+}
+
+.smart-watches .container .smart-items .smart-item {
+   background-color: #090a1d;
+   transition: 1s;
+   transform: scale(1);
+}
+
+.smart-watches .container .smart-items .smart-item:hover{
+   transform: scale(1.1);
+   z-index: 2;
+}
+
+.smart-items .smart-item .smart-image {
+   position: relative;
+}
+
+.smart-items .smart-item .smart-image img {
+   width: 100%;
+}
+
+.smart-items .smart-item .smart-info {
+   top: 0;
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   padding: 10px;
+}
+
+.smart-image .smart-info i {
+   position: absolute;
+   right: 10px;
+   color: var(--second-color);
+   cursor: pointer;
+   transition: 0.5s;
+}
+
+.smart-image .smart-info i:hover{
+    color: #ff0000;
+}
+
+.smart-item .smart-image .smart-info a{
+   position: absolute;
+   bottom: 10px;
+   right: 10px;
+   color: var(--second-color);
+   font-size: 16px;
+   text-transform: capitalize;
+   font-family: monospace;
+}
+
+.smart-item button {
+   width: 100%;
+   outline: none;
+   border: 0.5px solid #fff;
+   height: 30px;
+   text-transform: capitalize;
+   font: 17px sans-serif;
+   cursor: pointer;
+   transition: 1s;
+   background-color: var(--second-color);
+   color: var(--main-color);
+   font-weight: bold;
+}
+
+/* End smart watch styles */
+
+/* Start jewellery styles */
+
+.jewellery{
+   margin: 20px 0;
+}
+
+.jewellery .container{
+   perspective: 10000px;
+}
+.jewellery .jewellery-img , .jewellery-img img{
+    width: 100%;
+    height: 500px; 
+}
+.jewellery-img {
+   position: relative;
+   transition: 1s;
+   transform-style: preserve-3d;
+   margin: 20px 0;
+}
+.jewellery-img img {
+   position: absolute;
+}
+.jewellery-img img:first-child{
+   z-index: 1;
+   backface-visibility: hidden;
+}
+.jewellery-img img:last-child{
+   transform: rotatey(180deg);
+}
+.jewellery-img:hover{
+   transform:rotatey(180deg) ;
+}
+.jewellery .jew-btn{
+   display: flex;
+   justify-content: space-between;
+}
+.jewellery .jew-btn button {
+   width: 40%;
+   border: none;
+   outline: none;
+   padding: 7px 0;
+   background-color: var(--main-color);
+   color: var(--second-color);
+   font-size: 18px;
+   font-weight: 800;
+   font-family: 'Mooli', sans-serif;
+   cursor: pointer;
+   text-transform: capitalize;
+}
+
+/* End jewellery styles */
+
+
+/* start discount&offers Styles */
+
+.discount-items{
+   display: grid;
+   grid-template-columns: 22.5% 50% 22.5%;
+   column-gap: 2.5% ;
+}
+
+.discount-items .discount-item{
+   transition: 1s;
+   transform: scale(1);
+}
+
+.discount-items .discount-item:hover{
+   transform: scale(1.1);
+}
+
+.discount-items .discount-item img{
+  width: 100%;
+}
+
+.offers-items{
+   display: flex;
+   text-align: center;
+   margin: 20px 0;
+}
+
+.offers-item{
+   border-right: 3px solid var(--main-color);
+   padding: 10px 0;
+   transition: 0.5s;
+}
+
+.offers-item:last-of-type{
+   border:none
+}
+
+.offers-item .offers-img {
+   height: 66px;
+}
+
+.offers-item .offers-img i {
+   font-size: 28px;
+   opacity: 0.3;
+   display: block;
+   line-height: 66px;
+   transition: 0.2s;
+}
+
+.offers-item:hover .offers-img i:first-child{
+   transform: translateY(-66px);
+   opacity: 0;
+}
+
+.offers-item .offers-img i:last-child{
+   opacity: 0;
+   color: #000642;
+ }
+
+ .offers-item:hover .offers-img i:last-child{
+   transform: translateY(-66px);
+   opacity: 1;
+ }
+
+.offers-item .offers-info h3{
+   font-family: 'Signika Negative';
+   text-transform: capitalize;
+   color: var(--main-color);
+}
+
+.offers-item .offers-info p {
+   text-transform: capitalize;
+   word-spacing: -2px;
+   font-size: 18px;
+   font-family: sans-serif;
+}
+
+/* end discount&offers Styles */
+
+/* Start footer styles */
+.footer{
+   background-color: var(--main-color);
+   padding: 20px;
+}
+
+.footer .footer-list{
+   display: grid;
+   grid-template-columns: repeat(4,25%);
+   text-align: center;
+}
+
+.footer .footer-list dl dt{
+   color: var(--second-color);
+   font-size: 23px;
+   font-weight: bold;
+   text-transform: uppercase;
+   font-family: 'Dancing Script';
+   margin-bottom: 10px;
+}
+
+.footer .footer-list dl dd a {
+   color: var(--second-color);
+   text-transform: capitalize;
+   font-family: 'Signika Negative';
+}
+
+.footer .footer-icons{
+   width: 200px;
+   margin-left: auto;
+}
+
+.footer .footer-icons a {
+   color: var(--second-color);
+   height: 50px;
+   display: inline-block;
+}
+
+.footer .footer-icons i{
+   line-height: 50px;
+    font-size: 30px;
+}
+
+.footer p {
+   color: var(--second-color);
+   text-transform: capitalize;
+   font-family: 'Mooli';
+   text-align: center;
+}
+
+
+
+
+
+
+
+/* end footer styles */
